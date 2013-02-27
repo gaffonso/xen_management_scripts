@@ -3,6 +3,8 @@
 # run with:
 #   bash -c "$(curl -fsSL http://raw.github.com/5043824)" vm_name
 
+set -o verbose
+
 if [ $# -ne 1 -o "x$0" == "x"  -o $0 == "bash" ]; then
   echo "Missing VM name.  Supply that as first argument"
   exit 1
