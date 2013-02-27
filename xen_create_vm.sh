@@ -10,7 +10,7 @@ fi
 
 VM_NAME=$1
 
-set -o xtrace
+# set -o xtrace
 
 lvcreate -L100G -n $VM_NAME stor      # 100gb storage volume in volume group "stor"
 cp /stor/vms/stacklet_images/centos.6-3.x86-64.20120709.img /stor/vms/${VM_NAME}_centos.6-3.x86-64.20120709.img
