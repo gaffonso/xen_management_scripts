@@ -7,6 +7,8 @@
 # - vm was created using the xen_create_vm.sh script (or equivalent)
 # - logged-in as root
 
+# set -o xtrace
+
 # check params
 if [ $# -ne 2 ]; then
   echo "Missing hostname."
@@ -68,7 +70,7 @@ Y
 Y
 Y
 EOF
-mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -psa mysql
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD mysql
 
 
 # Install Java 6
@@ -97,7 +99,6 @@ mvn -version
 #mv grails-2.0.1 /home
 #nano ~/.bash_profile    # TODO: need sed statement that does this work
 #source ~/.bash_profile
-
 
 echo
 echo "Setup Complete"
