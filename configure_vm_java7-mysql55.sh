@@ -74,12 +74,14 @@ Y
 Y
 Y
 EOF
-mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD mysql
+exec "mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD mysql"
 
 
 # Install Java 7
 wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7/jdk-7-linux-x64.rpm" -O /stor/downloads/jdk-7-linux-x64.rpm
 rpm -Uvh /stor/downloads/jdk-7-linux-x64.rpm
+echo 'export JAVA_HOME=/usr/bin/java/' >> ~/.bash_profile
+source ~/.bash_profile
 
 
 # Install maven
@@ -87,25 +89,31 @@ rpm -Uvh /stor/downloads/jdk-7-linux-x64.rpm
 wget http://apache.mirrors.lucidnetworks.net/maven/maven-2/2.2.1/binaries/apache-maven-2.2.1-bin.tar.gz  -P /stor/downloads/
 tar xzvf /stor/downloads/apache-maven-2.2.1-bin.tar.gz -C /usr/local
 ln -s /usr/local/apache-maven-2.2.1 /usr/local/maven
-echo "export M2_HOME=/usr/local/maven" >> ~/.bash_profile
-echo "export PATH=\${M2_HOME}/bin:\${PATH}" >> ~/.bash_profile
+echo 'export M2_HOME=/usr/local/maven' >> ~/.bash_profile
+echo 'export PATH=${M2_HOME}/bin:${PATH}' >> ~/.bash_profile
 source ~/.bash_profile
 mvn -version
 
 
 # install grails 2.0.1
-# TODO
-#mv grails-2.0.1 /home
-#nano ~/.bash_profile    # TODO: need sed statement that does this work
-#source ~/.bash_profile
+wget http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-2.0.1.zip -P /stor/downloads/
+unzip /stor/downloads/grails-2.0.1.zip -d /usr/local
+ln -s /usr/local/grails-2.0.1/ /usr/local/grails
+echo 'export GRAILS_HOME=/usr/local/grails' >> ~/.bash_profile
+echo 'export PATH=${GRAILS_HOME}/bin:${PATH}' >> ~/.bash_profile
+source ~/.bash_profile
+
 
 echo
+echo "--------------"
 echo "Setup Complete"
 echo "--------------"
 hostname
 echo
 svn --version
 echo
+echo $JAVA_HOME
 java -version
 echo
+echo $M2_HOME
 mvn -version
