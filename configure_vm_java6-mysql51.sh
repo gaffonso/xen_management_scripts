@@ -11,11 +11,20 @@
 
 # check params
 if [ $# -ne 2 ]; then
-  echo "Missing hostname."
+  echo "Missing hostname and/or mysql_root_password."
   exit 1
 fi
+
 HOSTNAME=$1
 MYSQL_ROOT_PASSWORD=$2
+
+echo
+echo "--------------------------"
+echo "Installing and Configuring"
+echo "--------------------------"
+echo "HOSTNAME: $HOSTNAME"
+echo "MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD"
+echo
 
 
 # Must be root to run this script
@@ -70,7 +79,7 @@ Y
 Y
 Y
 EOF
-exec "mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD mysql"
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD mysql
 
 
 # Install Java 6
@@ -107,12 +116,16 @@ echo
 echo "--------------"
 echo "Setup Complete"
 echo "--------------"
-hostname
+echo
+echo "Hostname: $hostname"
+echo
+echo "JAVA_HOME: $JAVA_HOME"
+echo "M2_HOME: $M2_HOME"
+echo "GRAILS_HOME: $GRAILS_HOME"
+echo "PATH: $PATH"
 echo
 svn --version
 echo
-echo $JAVA_HOME
 java -version
 echo
-echo $M2_HOME
 mvn -version
