@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # run with:
-#   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/xen_remove_vm.sh | bash -s vm_name
+#   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/xen_destroy_vm.sh | bash -s vm_name
 
 if [ $# -ne 1 ]; then
   echo "Missing VM name."
