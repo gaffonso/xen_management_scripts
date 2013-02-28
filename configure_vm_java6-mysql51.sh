@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # run with:
-#   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/configure_vm_java6-tomcat6-mysql51.sh | bash -s hostname mysql_root_password
+#   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/configure_vm_java6-mysql51.sh | bash -s hostname mysql_root_password
 #
 # Note: Script assumes
 # - vm was created using the xen_create_vm.sh script (or equivalent)
