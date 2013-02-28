@@ -58,7 +58,7 @@ yum -y install subversion
 rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 yum --enablerepo=remi,remi-test list mysql mysql-server
-yum --enablerepo=remi,remi-test install mysql mysql-server
+yum -y --enablerepo=remi,remi-test install mysql mysql-server
 /etc/init.d/mysqld start
 chkconfig --levels 235 mysqld on
 /usr/bin/mysql_secure_installation
@@ -76,7 +76,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -psa mysql
 
 
 # Install Java 7
-wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7u10-b18/jdk-7u10-linux-x64.rpm" -O /stor/downloads/jdk-7u10-linux-x64.rpm
+wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7/jdk-7-linux-x64.rpm" -O /stor/downloads/jdk-7-linux-x64.rpm
 rpm -Uvh /stor/downloads/jdk-7u10-linux-x64.rpm
 
 
