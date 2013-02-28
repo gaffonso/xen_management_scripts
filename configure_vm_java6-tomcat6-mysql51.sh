@@ -69,24 +69,16 @@ Y
 Y
 EOF
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -psa mysql
-echo "MySQL Installed"
-echo "---------------"
-echo
 
 
 # Install Java 6
 wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/6u41-b02/jdk-6u41-linux-x64-rpm.bin" -O /stor/downloads/jdk-6u41-linux-x64-rpm.bin
-chmod +x /stor/downloads/downloads/jdk-6u41-linux-x64-rpm.bin
-cat <<EOF | /stor/downloads/downloads/jdk-6u41-linux-x64-rpm.bin
+chmod +x /stor/downloads/jdk-6u41-linux-x64-rpm.bin
+cat <<EOF | /stor/downloads/jdk-6u41-linux-x64-rpm.bin
 
 EOF
 echo "export JAVA_HOME=/usr/java/default" >> ~/.bash_profile
 source ~/.bash_profile
-echo "Java Installed"
-echo "--------------"
-echo "JAVA_HOME: $JAVA_HOME"
-java -version
-echo
 
 
 # Install maven
@@ -97,11 +89,7 @@ ln -s /usr/local/apache-maven-2.2.1 /usr/local/maven
 echo "export M2_HOME=/usr/local/maven" >> ~/.bash_profile
 echo "export PATH=\${M2_HOME}/bin:\${PATH}" >> ~/.bash_profile
 source ~/.bash_profile
-echo "Maven Installed"
-echo "---------------"
-echo "M2-HOME: $M2_HOME"
 mvn -version
-echo
 
 
 # install grails 2.0.1
@@ -109,3 +97,15 @@ echo
 #mv grails-2.0.1 /home
 #nano ~/.bash_profile    # TODO: need sed statement that does this work
 #source ~/.bash_profile
+
+
+echo
+echo "Setup Complete"
+echo "--------------"
+hostname
+echo
+svn --version
+echo
+java -version
+echo
+mvn -version
