@@ -77,7 +77,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -psa mysql
 
 # Install Java 7
 wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7/jdk-7-linux-x64.rpm" -O /stor/downloads/jdk-7-linux-x64.rpm
-rpm -Uvh /stor/downloads/jdk-7u10-linux-x64.rpm
+rpm -Uvh /stor/downloads/jdk-7-linux-x64.rpm
 
 
 # Install maven
