@@ -7,15 +7,24 @@
 # - vm was created using the xen_create_vm.sh script (or equivalent)
 # - logged-in as root
 
-# set -o xtrace
+set -o xtrace
 
 # check params
 if [ $# -ne 2 ]; then
-  echo "Missing hostname."
+  echo "Missing hostname and/or mysql_root_password."
   exit 1
 fi
+
 HOSTNAME=$1
 MYSQL_ROOT_PASSWORD=$2
+
+echo
+echo "--------------------------"
+echo "Installing and Configuring"
+echo "--------------------------"
+echo "HOSTNAME: $HOSTNAME"
+echo "MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD"
+echo
 
 
 # Must be root to run this script
@@ -74,7 +83,7 @@ Y
 Y
 Y
 EOF
-exec "mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD mysql"
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD mysql
 
 
 # Install Java 7
