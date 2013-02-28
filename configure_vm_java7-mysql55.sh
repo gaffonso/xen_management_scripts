@@ -7,7 +7,7 @@
 # - vm was created using the xen_create_vm.sh script (or equivalent)
 # - logged-in as root
 
-set -o xtrace
+#set -o xtrace
 
 # check params
 if [ $# -ne 2 ]; then
@@ -72,7 +72,6 @@ yum --enablerepo=remi,remi-test list mysql mysql-server
 yum -y --enablerepo=remi,remi-test install mysql mysql-server
 /etc/init.d/mysqld start
 chkconfig --levels 235 mysqld on
-/usr/bin/mysql_secure_installation
 cat <<EOF | /usr/bin/mysql_secure_installation
 
 Y
@@ -117,12 +116,16 @@ echo
 echo "--------------"
 echo "Setup Complete"
 echo "--------------"
-hostname
+echo
+echo "Hostname: $hostname"
+echo
+echo "JAVA_HOME: $JAVA_HOME"
+echo "M2_HOME: $M2_HOME"
+echo "GRAILS_HOME: $GRAILS_HOME"
+echo "PATH: $PATH"
 echo
 svn --version
 echo
-echo $JAVA_HOME
 java -version
 echo
-echo $M2_HOME
 mvn -version
