@@ -100,7 +100,6 @@ ln -s /usr/local/apache-maven-2.2.1 /usr/local/maven
 echo 'export M2_HOME=/usr/local/maven' >> ~/.bash_profile
 echo 'export PATH=${M2_HOME}/bin:${PATH}' >> ~/.bash_profile
 source ~/.bash_profile
-mvn -version
 
 
 # install grails 2.0.1
@@ -130,4 +129,4 @@ java -version
 echo
 mvn -version
 echo
-grails-version
+grails -version
