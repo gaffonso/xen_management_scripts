@@ -88,7 +88,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD m
 # Install Java 7
 wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7/jdk-7-linux-x64.rpm" -O /stor/downloads/jdk-7-linux-x64.rpm
 rpm -Uvh /stor/downloads/jdk-7-linux-x64.rpm
-echo 'export JAVA_HOME=/usr/bin/java/' >> ~/.bash_profile
+echo 'export JAVA_HOME=/usr/java/default' >> ~/.bash_profile
 source ~/.bash_profile
 
 
@@ -117,7 +117,7 @@ echo "--------------"
 echo "Setup Complete"
 echo "--------------"
 echo
-echo "Hostname: $hostname"
+hostname
 echo
 echo "JAVA_HOME: $JAVA_HOME"
 echo "M2_HOME: $M2_HOME"
@@ -129,3 +129,5 @@ echo
 java -version
 echo
 mvn -version
+echo
+grails-version
