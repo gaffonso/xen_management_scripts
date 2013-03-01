@@ -7,7 +7,7 @@
 # - vm was created using the xen_create_vm.sh script (or equivalent)
 # - logged-in as root
 
-# set -o xtrace
+#set -o xtrace
 
 # check params
 if [ $# -ne 2 ]; then
@@ -88,7 +88,7 @@ chmod +x /stor/downloads/jdk-6u41-linux-x64-rpm.bin
 cat <<EOF | /stor/downloads/jdk-6u41-linux-x64-rpm.bin
 
 EOF
-echo 'export JAVA_HOME=/usr/bin/java/' >> ~/.bash_profile
+echo 'export JAVA_HOME=/usr/java/default' >> ~/.bash_profile
 source ~/.bash_profile
 
 
@@ -117,7 +117,7 @@ echo "--------------"
 echo "Setup Complete"
 echo "--------------"
 echo
-echo "Hostname: $hostname"
+hostname
 echo
 echo "JAVA_HOME: $JAVA_HOME"
 echo "M2_HOME: $M2_HOME"
@@ -129,3 +129,5 @@ echo
 java -version
 echo
 mvn -version
+echo
+grails-version
