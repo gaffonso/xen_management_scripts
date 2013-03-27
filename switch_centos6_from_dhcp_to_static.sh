@@ -70,7 +70,7 @@ EOF
 
 
 ## Restart the newtwork interface
-# /etc/init.d/network restart
+/etc/init.d/network restart
 
 
 ## Summarize
