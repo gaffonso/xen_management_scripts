@@ -57,7 +57,7 @@ NETMASK=$HOST_NETMASK
 EOF
 
 ## Configure default gateway
-cat "GATEWAY=$GATEWAY_IP_ADDRESS" >> /etc/sysconfig/network
+echo "GATEWAY=$GATEWAY_IP_ADDRESS" >> /etc/sysconfig/network
 
 ## Configure DNS Server
 cp /etc/resolv.conf /etc/resolv.conf.bkup
