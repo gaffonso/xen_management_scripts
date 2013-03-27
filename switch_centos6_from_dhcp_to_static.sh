@@ -70,14 +70,13 @@ EOF
 # /etc/init.d/network restart
 
 
-echo "--------------"
 echo "Setup Complete"
 echo "--------------"
 echo "/etc/sysconfig/network-scripts/ifcfg-eth0..."
 cat /etc/sysconfig/network-scripts/ifcfg-eth0
 echo
-cat "/etc/sysconfig/network..."
+echo "/etc/sysconfig/network..."
 cat /etc/sysconfig/network
 echo
-cat "/etc/resolv.conf..."
+echo "/etc/resolv.conf..."
 cat /etc/resolv.conf
