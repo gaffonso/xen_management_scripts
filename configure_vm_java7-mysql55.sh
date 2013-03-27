@@ -86,11 +86,11 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD m
 
 
 # Install Java 7
-wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7/jdk-7-linux-x64.rpm" -O /stor/downloads/jdk-7-linux-x64.rpm
-rpm -Uvh /stor/downloads/jdk-7-linux-x64.rpm
+wget --no-check-certificate --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "https://edelivery.oracle.com/otn-pub/java/jdk/7u17-b02/jdk-7u17-linux-x64.rpm" -O /stor/downloads/jdk-7u17-linux-x64.rpm
+rpm -Uvh /stor/downloads/jdk-7u17-linux-x64.rpm
 touch /etc/profile.d/java.sh
 echo 'export JAVA_HOME=/usr/java/default' >> /etc/profile.d/java.sh
-echo "PATH=$JAVA_HOME/bin:$PATH" >> /etc/profile.d/java.sh
+echo 'export PATH=${JAVA_HOME}/bin:${PATH}' >> /etc/profile.d/java.sh
 source /etc/profile.d/java.sh
 
 
@@ -100,7 +100,7 @@ unzip /stor/downloads/grails-2.0.1.zip -d /usr/local
 ln -s /usr/local/grails-2.0.1 /usr/local/grails
 touch /etc/profile.d/grails.sh
 echo 'export GRAILS_HOME=/usr/local/grails' >> /etc/profile.d/grails.sh
-echo "export PATH=$GRAILS_HOME/bin:$PATH" >> /etc/profile.d/grails.sh
+echo "export PATH=${GRAILS_HOME}/bin:${PATH}" >> /etc/profile.d/grails.sh
 source /etc/profile.d/grails.sh
 
 
@@ -113,7 +113,7 @@ touch /etc/profile.d/maven.sh
 echo 'export M2_HOME=/usr/local/maven' >> /etc/profile.d/maven.sh
 echo "export MAVEN_HOME=$M2_HOME" >> /etc/profile.d/maven.sh
 echo 'export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"' >> /etc/profile.d/maven.sh
-echo "export PATH=$M2_HOME/bin:$PATH" >> /etc/profile.d/maven.sh
+echo "export PATH=${M2_HOME}/bin:${PATH}" >> /etc/profile.d/maven.sh
 source /etc/profile.d/maven.sh
 
 echo
@@ -121,8 +121,7 @@ echo "--------------"
 echo "Setup Complete"
 echo "--------------"
 echo
-hostname
-echo
+echo "Hostname: $(hostname)"
 echo "JAVA_HOME: $JAVA_HOME"
 echo "M2_HOME: $M2_HOME"
 echo "GRAILS_HOME: $GRAILS_HOME"
