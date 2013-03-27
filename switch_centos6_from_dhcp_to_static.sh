@@ -73,9 +73,6 @@ EOF
 echo "--------------"
 echo "Setup Complete"
 echo "--------------"
-echo
-hostname
-echo
 echo "/etc/sysconfig/network-scripts/ifcfg-eth0..."
 cat /etc/sysconfig/network-scripts/ifcfg-eth0
 echo
