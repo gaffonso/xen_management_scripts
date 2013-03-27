@@ -116,9 +116,6 @@ echo 'export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"' >> /etc/profile.d/mave
 echo "export PATH=$M2_HOME/bin:$PATH" >> /etc/profile.d/maven.sh
 source /etc/profile.d/maven.sh
 
-#export CATALINA_HOME=/usr/local/tomcat
-#export PATH=$PATH:$CATALINA_HOME/bin
-
 echo
 echo "--------------"
 echo "Setup Complete"
