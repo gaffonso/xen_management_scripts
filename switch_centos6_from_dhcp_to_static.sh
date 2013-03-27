@@ -82,5 +82,5 @@ echo
 cat "/etc/sysconfig/network..."
 echo /etc/sysconfig/network
 echo
-cat "/etc/resolv.conf.bkup..."
-echo /etc/resolv.conf.bkup
+cat "/etc/resolv.conf..."
+echo /etc/resolv.conf
