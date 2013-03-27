@@ -45,7 +45,7 @@ sed -i 's|ZONE="America/New York"|ZONE="America/Los_Angeles"|' /etc/sysconfig/cl
 
 
 # change hostname
-hostname precor1
+hostname $HOSTNAME
 echo "HOSTNAME=\"${HOSTNAME}\"" >> /etc/sysconfig/network
 
 
