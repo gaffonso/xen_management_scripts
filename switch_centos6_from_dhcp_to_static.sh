@@ -56,8 +56,10 @@ IPADDR=$HOST_IP_ADDRESS
 NETMASK=$HOST_NETMASK
 EOF
 
+
 ## Configure default gateway
-echo "GATEWAY=$GATEWAY_IP_ADDRESS" >> /etc/sysconfig/network
+grep -q "GATEWAY=$GATEWAY_IP_ADDRESS" /etc/sysconfig/network || echo "GATEWAY=$GATEWAY_IP_ADDRESS" >> /etc/sysconfig/network
+
 
 ## Configure DNS Server
 cp /etc/resolv.conf /etc/resolv.conf.bkup
@@ -66,10 +68,12 @@ nameserver $DNS1
 nameserver $DNS2
 EOF
 
-# Restart the newtwork interface
+
+## Restart the newtwork interface
 # /etc/init.d/network restart
 
 
+## Summarize
 echo "Setup Complete"
 echo "--------------"
 echo "/etc/sysconfig/network-scripts/ifcfg-eth0..."
@@ -80,3 +84,6 @@ cat /etc/sysconfig/network
 echo
 echo "/etc/resolv.conf..."
 cat /etc/resolv.conf
+echo
+echo "ifconfig..."
+ifconfig
