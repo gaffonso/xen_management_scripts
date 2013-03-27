@@ -58,13 +58,38 @@ echo '/dev/xvdb       /stor       ext3    errors=remount-ro       0 0' >> /etc/f
 mkdir /stor/downloads
 mkdir /stor/project_roots
 
-# install and build redis
-yum install make gcc
-wget http://redis.googlecode.com/files/redis-2.6.11.tar.gz -P /stor/downloads/
-tar zxf /stor/downloads/redis-2.6.11.tar.gz /usr/local
-/usr/local/redis-2.6.11/make
-/usr/local/redis-2.6.11/make test
-/usr/local/redis-2.6.11/make install
+# install make, gcc and tcl
+yum -y install make gcc tcl
+
+
+# download, build and install redis
+ls wget http://redis.googlecode.com/files/redis-2.6.11.tar.gz -P /stor/downloads/
+tar zxf /stor/downloads/redis-2.6.11.tar.gz -C /usr/local
+cd /usr/local/redis-2.6.11/
+make
+make test
+cd make install
+
+# configure redis as a system daemon
+# see... http://redis.io/topics/quickstart
+cp /usr/local/redis-2.6.11/utils/redis_init_script /etc/init.d/redis_6379
+mkdir /etc/redis
+cp /usr/local/redis-2.6.11/redis.conf /etc/redis/6379.conf
+
+# chkconfig: 345 20 80
+# description: Starts and stops the Oracle database and listeners
+
+
+mkdir -p /var/redis/6379
+sed -i 's|daemonize no|daemonize yes|' /etc/redis/6379.conf
+sed -i 's|pidfile /var/run/redis.pid|pidfile /var/run/redis_6379.pid|' /etc/redis/6379.conf
+sed -i 's|logfile stdout|logfile /var/log/redis_6379.log|' /etc/redis/6379.conf
+sed -i 's|dir ./|/var/redis/6379|' /etc/redis/6379.conf
+
+
+chkconfig --levels 235 redis_6379 on
+
+
 
 
 echo
@@ -74,11 +99,8 @@ echo "--------------"
 echo
 hostname
 echo
-echo "JAVA_HOME: $JAVA_HOME"
-echo "M2_HOME: $M2_HOME"
-echo "GRAILS_HOME: $GRAILS_HOME"
-echo "PATH: $PATH"
-echo
 redis-cli --version
 echo
 redis-server --version
+echo
+/etc/init.d/redis status

@@ -61,7 +61,7 @@ cat "GATEWAY=$GATEWAY_IP_ADDRESS" >> /etc/sysconfig/network
 
 ## Configure DNS Server
 cp /etc/resolv.conf /etc/resolv.conf.bkup
-cat <<EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
+cat <<EOF > /etc/resolv.conf
 nameserver $DNS1
 nameserver $DNS2
 EOF
