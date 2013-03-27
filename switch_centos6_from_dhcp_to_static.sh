@@ -77,7 +77,10 @@ echo
 hostname
 echo
 echo "/etc/sysconfig/network-scripts/ifcfg-eth0..."
-echo /etc/sysconfig/network-scripts/ifcfg-eth0
+cat /etc/sysconfig/network-scripts/ifcfg-eth0
 echo
-echo "/etc/sysconfig/network..."
+cat "/etc/sysconfig/network..."
 echo /etc/sysconfig/network
+echo
+cat "/etc/resolv.conf.bkup..."
+echo /etc/resolv.conf.bkup
