@@ -4,7 +4,7 @@
 #   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/switch_centos6_from_dhcp_to_static.sh | bash -s $host_ip_addr $host_netmask $gateway_ip_addr $dns1 $dns2
 #
 # example:
-#   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/switch_centos6_from_dhcp_to_static.sh | bash -s 10.14.251.35 255.255.254.0 10.14.250.10 10.14.0.90 10.14.0.96
+#   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/switch_centos6_from_dhcp_to_static.sh | bash -s 10.14.251.36 255.255.254.0 10.14.250.10 10.14.0.90 10.14.0.96
 #
 # Note: Script assumes
 # - vm was created using the xen_create_vm.sh script (or equivalent)
@@ -61,16 +61,16 @@ EOF
 grep -q "GATEWAY=$GATEWAY_IP_ADDRESS" /etc/sysconfig/network || echo "GATEWAY=$GATEWAY_IP_ADDRESS" >> /etc/sysconfig/network
 
 
+## Restart the newtwork interface
+/etc/init.d/network restart
+
+
 ## Configure DNS Server
 cp /etc/resolv.conf /etc/resolv.conf.bkup
 cat <<EOF > /etc/resolv.conf
 nameserver $DNS1
 nameserver $DNS2
 EOF
-
-
-## Restart the newtwork interface
-/etc/init.d/network restart
 
 
 ## Summarize
