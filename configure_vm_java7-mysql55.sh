@@ -88,8 +88,20 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p$MYSQL_ROOT_PASSWORD m
 # Install Java 7
 wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7/jdk-7-linux-x64.rpm" -O /stor/downloads/jdk-7-linux-x64.rpm
 rpm -Uvh /stor/downloads/jdk-7-linux-x64.rpm
-echo 'export JAVA_HOME=/usr/java/default' >> ~/.bash_profile
-source ~/.bash_profile
+touch /etc/profile.d/java.sh
+echo 'export JAVA_HOME=/usr/java/default' >> /etc/profile.d/java.sh
+echo "PATH=$JAVA_HOME/bin:$PATH" >> /etc/profile.d/java.sh
+source /etc/profile.d/java.sh
+
+
+# install grails 2.0.1
+wget http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-2.0.1.zip -P /stor/downloads/
+unzip /stor/downloads/grails-2.0.1.zip -d /usr/local
+ln -s /usr/local/grails-2.0.1 /usr/local/grails
+touch /etc/profile.d/grails.sh
+echo 'export GRAILS_HOME=/usr/local/grails' >> /etc/profile.d/grails.sh
+echo "export PATH=$GRAILS_HOME/bin:$PATH" >> /etc/profile.d/grails.sh
+source /etc/profile.d/grails.sh
 
 
 # Install maven
@@ -97,19 +109,15 @@ source ~/.bash_profile
 wget http://apache.mirrors.lucidnetworks.net/maven/maven-2/2.2.1/binaries/apache-maven-2.2.1-bin.tar.gz  -P /stor/downloads/
 tar xzvf /stor/downloads/apache-maven-2.2.1-bin.tar.gz -C /usr/local
 ln -s /usr/local/apache-maven-2.2.1 /usr/local/maven
-echo 'export M2_HOME=/usr/local/maven' >> ~/.bash_profile
-echo 'export PATH=${M2_HOME}/bin:${PATH}' >> ~/.bash_profile
-source ~/.bash_profile
+touch /etc/profile.d/maven.sh
+echo 'export M2_HOME=/usr/local/maven' >> /etc/profile.d/maven.sh
+echo "export MAVEN_HOME=$M2_HOME" >> /etc/profile.d/maven.sh
+echo 'export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"' >> /etc/profile.d/maven.sh
+echo "export PATH=$M2_HOME/bin:$PATH" >> /etc/profile.d/maven.sh
+source /etc/profile.d/maven.sh
 
-
-# install grails 2.0.1
-wget http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-2.0.1.zip -P /stor/downloads/
-unzip /stor/downloads/grails-2.0.1.zip -d /usr/local
-ln -s /usr/local/grails-2.0.1/ /usr/local/grails
-echo 'export GRAILS_HOME=/usr/local/grails' >> ~/.bash_profile
-echo 'export PATH=${GRAILS_HOME}/bin:${PATH}' >> ~/.bash_profile
-source ~/.bash_profile
-
+#export CATALINA_HOME=/usr/local/tomcat
+#export PATH=$PATH:$CATALINA_HOME/bin
 
 echo
 echo "--------------"
