@@ -24,8 +24,10 @@ echo "Installing and Configuring Subversion 1.6"
 echo "-------------------------------------------"
 echo
 
+
 # install subversion (1.6)
 yum -y install subversion
+
 
 echo
 echo "--------------"
