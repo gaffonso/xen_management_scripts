@@ -17,7 +17,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # must have java installed to run this script
-if [ $JAVA_HOME ]; then
+if [ ! $JAVA_HOME ]; then
    echo "This script requires that java be installed" 1>&2
    exit 1
 fi
