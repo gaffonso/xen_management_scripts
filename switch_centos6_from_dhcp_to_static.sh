@@ -65,6 +65,11 @@ grep -q "GATEWAY=$GATEWAY_IP_ADDRESS" /etc/sysconfig/network || echo "GATEWAY=$G
 /etc/init.d/network restart
 
 
+## Remove DHCP Client
+kill $(cat /var/run/dhclient-eth0.pid)
+yum -y remove dhclient
+
+
 ## Configure DNS Server
 cp /etc/resolv.conf /etc/resolv.conf.bkup
 cat <<EOF > /etc/resolv.conf
