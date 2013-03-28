@@ -18,6 +18,10 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 
+# re-source /etc/profile in case previous scripts have made changes
+source /etc/profile
+
+
 # must have java installed to run this script
 if [ ! $JAVA_HOME ]; then
    echo "This script requires that java be properly installed (JAVA_HOME must be set)" 1>&2
