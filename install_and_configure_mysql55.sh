@@ -18,19 +18,19 @@ fi
 MYSQL_ROOT_PASSWORD=$1
 
 
+# Must be root to run this script
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+
 echo
 echo "--------------------------"
 echo "Installing and Configuring"
 echo "--------------------------"
 echo "MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD"
 echo
-
-
-# Must be root to run this script
-if [ "$(id -u)" != "0" ]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
-fi
 
 
 # install mysql server 5.5 (requires non-standard repos on ubuntu 12.04.2) and lockdown security
