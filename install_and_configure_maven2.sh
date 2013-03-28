@@ -10,18 +10,26 @@
 
 #set -o xtrace
 
-echo
-echo "----------------------------------"
-echo "Installing and Configuring Maven 2"
-echo "----------------------------------"
-echo
-
 
 # Must be root to run this script
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
+
+
+# must have java installed to run this script
+if [ ! $JAVA_HOME ]; then
+   echo "This script requires that java be installed" 1>&2
+   exit 1
+fi
+
+
+echo
+echo "----------------------------------"
+echo "Installing and Configuring Maven 2"
+echo "----------------------------------"
+echo
 
 
 # prep some folders on the storage volume
