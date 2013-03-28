@@ -10,17 +10,17 @@
 
 #set -o xtrace
 
-echo
-echo "-------------------------------"
-echo "Installing and Configuring Java"
-echo "-------------------------------"
-
-
 # Must be root to run this script
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
+
+
+echo
+echo "--------------------------------"
+echo "Installing and Configuring Java 7"
+echo "--------------------------------"
 
 
 # prep some folders on the storage volume
@@ -43,5 +43,6 @@ echo "Setup Complete"
 echo "--------------"
 echo
 echo "JAVA_HOME: $JAVA_HOME"
+echo "PATH: $PATH"
 echo
 java -version
