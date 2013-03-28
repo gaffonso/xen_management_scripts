@@ -5,7 +5,8 @@
 #
 # Note: Script assumes
 # - vm was created using the xen_create_vm.sh script (or equivalent)
-# - the script "update_and_configure_new_vm.sh" has been run inside this vm
+# - "update_and_configure_new_vm.sh" has been run inside this vm
+# - java has been properly installed
 # - logged-in as root
 
 #set -o xtrace
