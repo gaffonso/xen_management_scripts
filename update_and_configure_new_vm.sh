@@ -10,7 +10,7 @@
 #set -o xtrace
 
 # check params
-if [ $# -ne 2 ]; then
+if [ $# -ne 1 ]; then
   echo "Missing hostname."
   exit 1
 fi
