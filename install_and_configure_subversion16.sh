@@ -18,6 +18,10 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 
+# re-source /etc/profile in case previous scripts have made changes
+source /etc/profile
+
+
 echo
 echo "-------------------------------------------"
 echo "Installing and Configuring Subversion 1.6"

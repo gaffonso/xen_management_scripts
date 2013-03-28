@@ -23,6 +23,10 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 
+# re-source /etc/profile in case previous scripts have made changes
+source /etc/profile
+
+
 # install Team City 7.1.4
 wget http://download-ln.jetbrains.com/teamcity/TeamCity-7.1.4.tar.gz -P /stor/downloads/
 tar xzvf /stor/downloads/TeamCity-7.1.4.tar.gz -C /usr/local

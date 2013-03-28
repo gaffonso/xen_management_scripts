@@ -23,6 +23,10 @@ if [ ! $JAVA_HOME ]; then
 fi
 
 
+# re-source /etc/profile in case previous scripts have made changes
+source /etc/profile
+
+
 echo
 echo "---------------------------------------"
 echo "Installing and Configuring Grails 2.0.1"
