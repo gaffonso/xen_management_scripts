@@ -32,7 +32,7 @@ echo "--------------------------------"
 
 
 # Install Java 6
-wget --no-check-certificate --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "https://edelivery.oracle.com/otn-pub/java/jdk/6u41-b02/jdk-6u41-linux-x64-rpm.bin" -O /stor/downloads/jdk-7u17-linux-x64.rpm
+wget --no-check-certificate --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "https://edelivery.oracle.com/otn-pub/java/jdk/6u41-b02/jdk-6u41-linux-x64-rpm.bin" -O /stor/downloads/jdk-6u41-linux-x64-rpm.bin
 chmod +x /stor/downloads/jdk-6u41-linux-x64-rpm.bin
 cat <<EOF | /stor/downloads/jdk-6u41-linux-x64-rpm.bin
 
@@ -42,9 +42,6 @@ echo 'export JAVA_HOME=/usr/java/default' >> /etc/profile.d/java.sh
 source /etc/profile.d/java.sh
 echo "export PATH=${JAVA_HOME}/bin:${PATH}" >> /etc/profile.d/java.sh
 source /etc/profile.d/java.sh
-
-
-rpm -Uvh /stor/downloads/jdk-7u17-linux-x64.rpm
 
 
 
