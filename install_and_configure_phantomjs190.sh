@@ -45,4 +45,3 @@ echo "--------------"
 echo "Setup Complete"
 echo "--------------"
 echo
-svn --version
