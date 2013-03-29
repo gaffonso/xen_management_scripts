@@ -49,11 +49,11 @@ sed -i.bak "s|# requirepass foobared|requirepass $REDIS_PASSWORD|" /usr/local/re
 
 # install as system service
 wget https://raw.github.com/gaffonso/xen_management_scripts/master/install_and_configure_redis2611-redis-server.chkconfig -P /stor/downloads/
-mv install_and_configure_redis2611-redis-server.chkconfig /etc/init.d/redis-server
+mv /stor/downloads/install_and_configure_redis2611-redis-server.chkconfig /etc/init.d/redis-server
 chmod 755 /etc/init.d/redis-server
 chkconfig --add redis-server
 chkconfig --level 345 redis-server on
-service redis-server start
+service redis-server start &    # todo: ampersand should not be necessary to put into background
 
 
 echo
