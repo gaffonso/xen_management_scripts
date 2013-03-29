@@ -45,7 +45,7 @@ sed -i 's|ZONE="America/New York"|ZONE="America/Los_Angeles"|' /etc/sysconfig/cl
 # change hostname
 hostname $HOSTNAME
 echo "HOSTNAME=\"${HOSTNAME}\"" >> /etc/sysconfig/network
-sed -i "s|127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4|127.0.0.1   localhost ${HOSTNAME} localhost.localdomain localhost4 localhost4.localdomain4|" /etc/sysconfig/clock
+sed -i "s|127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4|127.0.0.1   ${HOSTNAME} localhost localhost.localdomain localhost4 localhost4.localdomain4|" /etc/hosts
 
 
 
