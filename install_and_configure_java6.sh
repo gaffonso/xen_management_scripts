@@ -22,9 +22,9 @@ source /etc/profile
 
 
 echo
-echo "--------------------------------"
-echo "Installing and Configuring Java 7"
-echo "--------------------------------"
+echo "---------------------------------"
+echo "Installing and Configuring Java 6"
+echo "---------------------------------"
 
 
 # prep some folders on the storage volume
