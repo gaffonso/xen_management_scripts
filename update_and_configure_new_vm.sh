@@ -45,7 +45,8 @@ sed -i 's|ZONE="America/New York"|ZONE="America/Los_Angeles"|' /etc/sysconfig/cl
 # change hostname
 hostname $HOSTNAME
 echo "HOSTNAME=\"${HOSTNAME}\"" >> /etc/sysconfig/network
-# TODO: need to add the new hostname to the localhost's 127.0.0.1 entry
+sed -i "s|127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4|127.0.0.1   localhost ${HOSTNAME} localhost.localdomain localhost4 localhost4.localdomain4|" /etc/sysconfig/clock
+
 
 
 # format and mount the storage volume
