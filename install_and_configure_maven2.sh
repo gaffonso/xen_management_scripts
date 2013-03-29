@@ -48,12 +48,9 @@ tar xzvf /stor/downloads/apache-maven-2.2.1-bin.tar.gz -C /usr/local
 ln -s /usr/local/apache-maven-2.2.1 /usr/local/maven
 touch /etc/profile.d/maven.sh
 echo 'export M2_HOME=/usr/local/maven' >> /etc/profile.d/maven.sh
-source /etc/profile.d/maven.sh
-echo "export MAVEN_HOME=$M2_HOME" >> /etc/profile.d/maven.sh
-source /etc/profile.d/maven.sh
+echo "export MAVEN_HOME=\$M2_HOME" >> /etc/profile.d/maven.sh
 echo 'export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"' >> /etc/profile.d/maven.sh
-source /etc/profile.d/maven.sh
-echo "export PATH=${M2_HOME}/bin:${PATH}" >> /etc/profile.d/maven.sh
+echo "export PATH=\${M2_HOME}/bin:\${PATH}" >> /etc/profile.d/maven.sh
 source /etc/profile.d/maven.sh
 
 

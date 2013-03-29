@@ -39,8 +39,7 @@ cat <<EOF | /stor/downloads/jdk-6u41-linux-x64-rpm.bin
 EOF
 touch /etc/profile.d/java.sh
 echo 'export JAVA_HOME=/usr/java/default' >> /etc/profile.d/java.sh
-source /etc/profile.d/java.sh
-echo "export PATH=${JAVA_HOME}/bin:${PATH}" >> /etc/profile.d/java.sh
+echo "export PATH=\${JAVA_HOME}/bin:\${PATH}" >> /etc/profile.d/java.sh
 source /etc/profile.d/java.sh
 
 

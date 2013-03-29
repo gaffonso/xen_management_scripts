@@ -45,8 +45,7 @@ unzip /stor/downloads/grails-2.0.1.zip -d /usr/local
 ln -s /usr/local/grails-2.0.1 /usr/local/grails
 touch /etc/profile.d/grails.sh
 echo 'export GRAILS_HOME=/usr/local/grails' >> /etc/profile.d/grails.sh
-source /etc/profile.d/grails.sh
-echo "export PATH=${GRAILS_HOME}/bin:${PATH}" >> /etc/profile.d/grails.sh
+echo "export PATH=\${GRAILS_HOME}/bin:\${PATH}" >> /etc/profile.d/grails.sh
 source /etc/profile.d/grails.sh
 
 
