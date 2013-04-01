@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # run with:
-#   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/install_and_configure_phantomjs190.sh | bash -s
+#   curl -s https://raw.github.com/gaffonso/xen_management_scripts/master/install_and_configure_phantomjs182.sh | bash -s
 #
 # Note: Script assumes
 # - vm was created using the xen_create_vm.sh script (or equivalent)
