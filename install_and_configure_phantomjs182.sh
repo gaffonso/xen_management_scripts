@@ -33,10 +33,10 @@ echo
 # TODO: move this out to separate config file?
 # TODO: use symlink to get phantomjs into /usr/local/bin?
 wget https://phantomjs.googlecode.com/files/phantomjs-1.8.2-linux-x86_64.tar.bz2 -P /stor/downloads/
-tar xpvf /stor/downloads/phantomjs-1.9.0-linux-x86_64.tar.bz2 -C /stor/downloads
+tar xpvf /stor/downloads/phantomjs-1.8.2-linux-x86_64.tar.bz2 -C /stor/downloads
 yum -y install freetype.x86_64
 yum -y install fontconfig.x86_64
-mv /stor/downloads/phantomjs-1.9.0-linux-x86_64/bin/phantomjs /usr/local/bin
+mv /stor/downloads/phantomjs-1.8.2-linux-x86_64/bin/phantomjs /usr/local/bin
 phantomjs -v
 
 
